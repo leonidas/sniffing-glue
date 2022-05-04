@@ -49,10 +49,6 @@ const createScript = async (
           Source: "source_node",
           Target: "target_node",
         },
-        // {
-        //   Source: "transform_node",
-        //   Target: "target_node",
-        // },
       ],
       DagNodes: [
         {
@@ -72,14 +68,6 @@ const createScript = async (
           Id: "source_node",
           NodeType: "DataSource",
         },
-        // // ApplyMapping
-        // {
-        //   Args: [
-        //   ],
-        //   Id: "transform_node",
-        //   NodeType: "ApplyMapping",
-        // },
-        // DataTarget
         {
           Args: [
             {
@@ -194,24 +182,3 @@ const runETLjob = async (jobName?: string) => {
 
   return;
 })();
-
-// const createMapping = async () => {
-//   const res = await glueClient
-//     .getMapping({
-//       Source: {
-//         DatabaseName: "dynamoathenadb",
-//         TableName:
-//           "dynamoathenatablecrawlerstack_dynamoathenatable55d76dac_abnny5qo862z",
-//       },
-//       Location: {
-//         S3: [
-//           {
-//             Name: "classification",
-//             Value: "parquet",
-//           },
-//         ],
-//       },
-//     })
-//     .promise();
-//   console.log("res", res);
-// };
