@@ -1,0 +1,40 @@
+{
+  "name": "dynamo-athena",
+  "version": "0.1.0",
+  "bin": {
+    "dynamo-athena": "bin/dynamo-athena.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "runCrawler": "node -r ts-node/register --experimental-fetch scripts.ts runCrawler",
+    "loadData": "node -r ts-node/register --experimental-fetch scripts.ts loadData",
+    "getTableNames": "node -r ts-node/register --experimental-fetch scripts.ts getTableNames",
+    "createScript": "node -r ts-node/register --experimental-fetch scripts.ts createScript",
+    "runETLjob": "node -r ts-node/register --experimental-fetch scripts.ts runETLjob"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.127.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "^2.21.1",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-athena": "^1.154.0",
+    "@aws-cdk/aws-dynamodb": "1.153.1",
+    "@aws-cdk/aws-glue": "1.153.1",
+    "@aws-cdk/aws-iam": "1.153.1",
+    "@aws-cdk/aws-s3": "1.153.1",
+    "@aws-cdk/core": "1.153.1",
+    "@aws-sdk/client-glue": "^3.80.0",
+    "aws-sdk": "^2.1123.0",
+    "source-map-support": "^0.5.16",
+    "yargs": "^17.4.1"
+  }
+}
