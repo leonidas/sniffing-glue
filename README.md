@@ -8,7 +8,16 @@ This project is an attempt to get the data in DynamoDB to S3 in queryable format
 
 ## How does it work?
 
-TODO
+You can find all the components of the app in `lib/infra-stack.ts` + `lib/glue-job-stack.ts`. In addition to the CDK infra, there's some scripts in `./scripts.ts`.
+Simply put the app just converts dynamo data to parquet and detects its schema so that Athena can query it.
+
+1. The initial data lies in a DynamoDB table
+1. A glue crawler crawls through the table, detecting its schema
+1. Based on the schema an ETL script is created for converting the data to parquet
+1. Using the ETL script a glue job is created and then executed
+1. The ETL job puts the data to an S3 bucket in parquet format
+1. Now a separate glue crawler is used to detect the schema of the parquet data
+1. Now the data can be queried with Athena
 
 ## How to deploy?
 
